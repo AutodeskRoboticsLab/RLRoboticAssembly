@@ -1,0 +1,51 @@
+<?xml version="0.0" ?>
+<robot name="assembly">
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <link name="base">
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+        </inertial>
+    </link>
+
+    <joint name="assembly" type="fixed">
+        <parent link="base"/>
+        <child link="assembly"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <dynamics damping="0.5"/>
+    </joint>
+
+    <link name="assembly">
+        <inertial>
+            <mass value="0.3"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="stl/task_lap_90deg_2mm_visual.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="stl/task_lap_90deg_2mm_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/task_lap_90deg_2mm_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/task_lap_90deg_2mm_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+</robot>

@@ -1,0 +1,42 @@
+assembly-apex-ddpg:
+
+    env: ROBOTIC_ASSEMBLY
+    run: APEX_DDPG
+
+    checkpoint_freq: 1  # the frequency at which to store checkpoints
+    checkpoint_at_end: True  # store the last checkpoint?
+    
+    local_dir: "~/workspace/ray_results"  # directory to store checkpoints
+
+    stop:
+        successful_rate: 0.9
+        # training_iteration: 500  # stop training at a predefined number of iterations
+    config:
+        use_huber: True
+        clip_rewards: False
+        num_workers: 5  # > 1 and < 1/2 of total number of logical cpu cores
+        n_step: 3
+
+        target_network_update_freq: 50000
+        buffer_size: 2000000 # this is the total buffer size that will be divided by the number of replay buffers
+        prioritized_replay_alpha: 0.5
+        sample_batch_size: 50
+        train_batch_size: 512
+        min_iter_time_s: 10
+
+        actor_hiddens: [256, 256]
+        critic_hiddens: [256, 256]
+
+        parameter_noise: False
+        batch_mode: "truncate_episodes"  # "complete_episodes" or "truncate_episodes"
+
+        # For APEX-DDPG, tau == 1 has the best performance.
+        # The algorithm uses target_network_update_freq to update.
+        tau: 1.0
+        
+        observation_filter: "MeanStdFilter"
+        
+        optimizer:
+            num_replay_buffer_shards: 6  # the number of replay buffers used
+            human_demonstration: True  # use human demonstration in training?
+            human_data_dir: "human_demo_data/lap"  # only activated when the above param is True

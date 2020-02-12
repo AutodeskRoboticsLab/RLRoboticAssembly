@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+<robot name="tool">
+
+    <material name="white">
+        <color rgba="1 1 1 0.9"/>
+    </material>
+
+    <link name="base">
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0.0001"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+        </inertial>
+    </link>
+
+    <joint name="sensor" type="fixed">
+        <parent link="base"/>
+        <child link="sensor"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <dynamics damping="0.5"/>
+    </joint>
+
+    <link name="sensor">
+        <inertial>
+            <mass value="1.964"/>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="stl/tool_sensor_visual.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_sensor_collision_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_sensor_collision_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_sensor_collision_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="gripper" type="fixed">
+        <parent link="sensor"/>
+        <child link="gripper"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <dynamics damping="0.5"/>
+    </joint>
+
+    <link name="gripper">
+        <inertial>
+            <mass value="4.31"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="stl/tool_gripper_visual.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_6.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_7.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_gripper_collision_8.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="member" type="fixed">
+        <parent link="gripper"/>
+        <child link="member"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.187"/>
+        <dynamics damping="0.5"/>
+    </joint>
+
+    <link name="member">
+        <inertial>
+            <mass value="0.417"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="stl/tool_lap_90deg_0mm_visual.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_lap_90deg_0mm_collision_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_lap_90deg_0mm_collision_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <collision>
+            <geometry>
+                <mesh filename="stl/tool_lap_90deg_0mm_collision_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+</robot>
