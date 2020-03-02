@@ -15,8 +15,8 @@ This repository is tested to be compatible with Ray 0.7.5. Hence, the following 
     * [transforms3d](https://pypi.org/project/transforms3d/)
     
     ```
-    $ pip install pybullet
-    $ pip install tensorflow
+    $ pip install pybullet==2.2.6
+    $ pip install tensorflow==1.10.0
     $ pip install getch
     $ pip install pygame
     $ pip install transforms3d
