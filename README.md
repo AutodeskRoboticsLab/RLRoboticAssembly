@@ -6,25 +6,23 @@ Here we provide a sim-to-real RL training and testing environment for robotic as
 
 This repository is tested to be compatible with Ray 0.7.5. Hence, the following instruction is for working with Ray 0.7.5. Please feel free to try later versions of Ray and modify the code accordingly.<br> 
 
-1. Install the conda environment for ray 0.7.5: https://pypi.org/project/ray/. Use Python 3.6.
+1. Install the conda environment for ray 0.7.5: https://pypi.org/project/ray/. Use Python 3.6. `$ pip install ray==0.7.5`
 2. Install the following dependencies:
     * [pybullet](https://pypi.org/project/pybullet/)
     * [tensorflow](https://pypi.org/project/tensorflow/)
+    * [gym](https://pypi.org/project/gym/)
+    * [opencv-python](https://pypi.org/project/opencv-python/)
     * [getch](https://pypi.org/project/getch/)
     * [pygame](https://pypi.org/project/pygame/)
     * [transforms3d](https://pypi.org/project/transforms3d/)
     
     ```
-    $ pip install pybullet==2.2.6
-    $ pip install tensorflow==1.10.0
-    $ pip install getch
-    $ pip install pygame
-    $ pip install transforms3d
+    $ pip install pybullet==2.2.6 tensorflow==1.10.0 gym opencv-python getch pygame transforms3d
      ```
 3. Download the ray source code from https://github.com/ray-project/ray/releases/tag/ray-0.7.5 and keep the rllib folder in your local working directory.
-4. Copy this file https://github.com/ray-project/ray/blob/releases/0.7.5/python/ray/setup-dev.py to the directory where the rllib folder is in. Edit line 46 to point to the local rllib folder as needed.  Run `setup-dev.py` to link to the local rllib. 
+4. In the ray folder, find python/ray/setup-dev.py and run `$ python setup-dev.py` to link to the local rllib. 
 5. Clone this repository inside the rllib folder.
-6. Run `copy-to-rllib.py` to install the patch. 
+6. Run `$ python copy-to-rllib.py` to install the patch. 
 
 ## Run
 
